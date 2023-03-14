@@ -93,7 +93,7 @@ const Header = () => {
             }}
           >
             <Box component='img' src={Logo} alt='ntt-Logo' />
-            <Menu sx={{ display: { xs: 'block', md: 'none' } }} />
+            <Menu sx={{ display: { xs: 'block', sm: 'none' } }} />
           </Box>
           <Box
             sx={{

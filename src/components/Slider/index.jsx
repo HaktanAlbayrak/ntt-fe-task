@@ -4,12 +4,13 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import './slider.css';
-
 import slider1 from '/src/assets/images/slider-1.png';
 import slider2 from '/src/assets/images/slider-2.png';
 import slider3 from '/src/assets/images/slider-3.png';
 import slider4 from '/src/assets/images/slider-4.png';
+import { Box } from '@mui/material';
+
+import './slider.css';
 
 const imageData = [
   {
@@ -48,15 +49,17 @@ const ResponsiveSlider = () => {
   };
 
   return (
-    <Slider {...settings}>
-      {imageData.map((item, index) => (
-        <div key={index} className='card'>
-          <div className='card-top'>
-            <img src={item.imgLink} alt={item.title} />
-          </div>
-        </div>
-      ))}
-    </Slider>
+    <Box className='main-slider'>
+      <Slider {...settings}>
+        {imageData.map((item, index) => (
+          <Box key={index}>
+            <Box>
+              <Box component='img' src={item.imgLink} alt={item.title} />
+            </Box>
+          </Box>
+        ))}
+      </Slider>
+    </Box>
   );
 };
 

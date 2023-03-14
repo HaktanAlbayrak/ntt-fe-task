@@ -36,3 +36,26 @@ export const footerItems = [
     ],
   },
 ];
+
+export const tabletFooterData = [
+  {
+    id: 1,
+    title: 'Title',
+  },
+  {
+    id: 2,
+    title: 'Title',
+  },
+  {
+    id: 3,
+    title: 'Title',
+  },
+  {
+    id: 4,
+    title: 'Title',
+  },
+  {
+    id: 5,
+    title: 'Title',
+  },
+];

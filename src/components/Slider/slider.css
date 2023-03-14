@@ -1,8 +1,7 @@
-.slick-slide img {
+.main-slider .slick-slide img {
   width: 100%;
 }
-
-.slick-dots {
+.main-slider .slick-dots {
   display: flex !important;
   align-items: center;
   justify-content: flex-end;
@@ -12,24 +11,21 @@
   height: 58px;
   padding-right: 120px;
 }
-
-.slick-dots li {
+.main-slider .slick-dots li {
   width: 10px;
   height: 0px;
   padding: 0px;
   margin: 0px;
   margin-right: 5px;
 }
-
-li.slick-active button::before {
-  background-color: transparent !important;
+.main-slider .slick-dots li.slick-active button::before {
+  background-color: transparent;
   opacity: 1;
 }
-
-.slick-dots li button::before {
+.main-slider .slick-dots li button:before {
   content: '';
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border: 1px solid white;
   border-radius: 100%;
   background-color: white;

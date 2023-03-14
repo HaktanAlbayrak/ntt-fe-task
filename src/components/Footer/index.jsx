@@ -9,24 +9,26 @@ import {
   Typography,
 } from '@mui/material';
 import footerLogo from '../../assets/images/footer-logo.png';
-import { footerItems } from './footerData';
+import { footerItems, tabletFooterData } from './footerData';
 import { Facebook, Instagram, Twitter } from '@mui/icons-material';
 
-const StyledEmailInput = styled('div')({
-  width: '400px',
+const StyledEmailInput = styled(Box)(({ theme }) => ({
   height: '40px',
   display: 'flex',
   flexDirection: 'row',
   backgroundColor: '#FFFFFF',
   color: '#000000',
   marginTop: '55px',
-});
+  [theme.breakpoints.up('md')]: {
+    width: '400px',
+  },
+}));
 
 const Footer = () => {
   return (
     <Box sx={{ backgroundColor: '#0059BC' }} mt={15}>
       <Container sx={{ marginTop: '65px' }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={5}>
           <Grid
             item
             md={7}
@@ -53,6 +55,7 @@ const Footer = () => {
                 fontSize: '16px',
                 lineHeight: '18.75px',
                 width: '407px',
+                display: { xs: 'none', sm: 'block' },
               }}
             >
               Lorem ipsum dolor sit amet consectetur. Auctor tempor pretium
@@ -88,13 +91,13 @@ const Footer = () => {
             item
             md={5}
             sx={{
-              display: 'flex',
+              display: { xs: 'none', sm: 'flex' },
               flexDirection: 'column',
             }}
           >
             <Box
               sx={{
-                display: 'flex',
+                display: { sm: 'none', md: 'flex' },
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -104,8 +107,8 @@ const Footer = () => {
             >
               {footerItems.map((item) => {
                 return (
-                  <Box>
-                    <Typography key={item.id} variant='h5' mb={2}>
+                  <Box key={item.id}>
+                    <Typography variant='h5' mb={2}>
                       {item.title}
                     </Typography>
                     {item.subItems.map((sItem, index) => {
@@ -113,13 +116,42 @@ const Footer = () => {
                         <Typography
                           key={index}
                           variant='h6'
-                          sx={{ fontWeight: 400, fontSize: '20px' }}
+                          sx={{
+                            fontWeight: 400,
+                            fontSize: '20px',
+                            display: { sm: 'none', md: 'block' },
+                          }}
                         >
                           {sItem.subTitle}
                         </Typography>
                       );
                     })}
                   </Box>
+                );
+              })}
+            </Box>
+            <Box
+              sx={{
+                display: { sm: 'flex', md: 'none' },
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                color: '#FFFFFF',
+                fontSize: '20px',
+                fontWeight: 500,
+                height: '160px',
+              }}
+              mt={5}
+            >
+              {tabletFooterData.map((item) => {
+                return (
+                  <Typography
+                    key={item.id}
+                    variant='span'
+                    sx={{ marginBottom: '6px' }}
+                  >
+                    {item.title}
+                  </Typography>
                 );
               })}
             </Box>
@@ -139,9 +171,23 @@ const Footer = () => {
             alignItems: 'center',
           }}
         >
-          <Typography variant='h6'>contact@nttdata.com</Typography>
-          <Typography variant='h6'>+3 9876 765 444</Typography>
-          <Stack direction='row' spacing={2}>
+          <Typography
+            variant='h6'
+            sx={{ width: { xs: '117px' }, fontSize: { xs: '12px' } }}
+          >
+            contact@nttdata.com
+          </Typography>
+          <Typography
+            variant='h6'
+            sx={{ width: { xs: '100px' }, fontSize: { xs: '12px' } }}
+          >
+            +3 9876 765 444
+          </Typography>
+          <Stack
+            direction='row'
+            spacing={2}
+            sx={{ display: { xs: 'none', sm: 'flex' } }}
+          >
             <Box>
               <Instagram />
             </Box>
