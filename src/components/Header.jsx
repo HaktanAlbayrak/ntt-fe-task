@@ -1,4 +1,4 @@
-import { ExpandMore, Search } from '@mui/icons-material';
+import { ExpandMore, Search, Menu } from '@mui/icons-material';
 import {
   AppBar,
   Box,
@@ -9,7 +9,6 @@ import {
   Select,
   styled,
   Toolbar,
-  Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
 import Logo from '../assets/images/Frame.png';
@@ -23,6 +22,9 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
   color: 'black',
   borderBottom: '1px solid black',
   padding: '20px 0px 0px 0px',
+  [theme.breakpoints.only('xs')]: {
+    padding: '20px 0px 30px 0px',
+  },
 }));
 
 const StyledToolBar = styled(Toolbar)(({ theme }) => ({
@@ -40,7 +42,7 @@ const SearchBar = styled('div')(({ theme }) => ({
   border: '1px solid black',
   display: 'flex',
   flexDirection: 'row',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.only('xs')]: {
     marginLeft: '0px',
     borderRadius: '5px 0px 0px 5px',
     width: '100%',
@@ -81,9 +83,18 @@ const Header = () => {
     <StyledAppBar sx={{ boxShadow: 0 }} position='relative'>
       <Container>
         <StyledToolBar>
-          <Typography variant='span' sx={{ marginRight: '24px' }}>
-            <img src={Logo} alt='ntt-Logo' />
-          </Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: { xs: '24px', md: '0px' },
+            }}
+          >
+            <Box component='img' src={Logo} alt='ntt-Logo' />
+            <Menu sx={{ display: { xs: 'block', md: 'none' } }} />
+          </Box>
           <Box
             sx={{
               display: 'flex',

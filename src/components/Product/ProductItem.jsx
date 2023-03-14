@@ -87,7 +87,7 @@ const ProductItem = ({ item }) => {
                 backgroundColor: '#E6EEF8',
                 color: '#00254F',
                 fontWeight: '700',
-                width: '259px',
+                width: '100%',
                 padding: '4px 8px',
               }}
             >

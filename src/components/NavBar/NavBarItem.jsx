@@ -1,13 +1,13 @@
 import { Box, Button, Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import navBarImage from '../../assets/images/menuPhoto.png';
-import { menuItems } from '../../navbarData';
+import { menuItems } from './navbarData';
 
-const NavBarItem = ({ isOpen, anchorEl, setIsOpen }) => {
+const NavBarItem = ({ anchorEl }) => {
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    const filteredItems = menuItems.filter((item) => item.id === 2);
+    const filteredItems = menuItems.filter((item) => item.id === +anchorEl);
     setFilteredData(filteredItems);
   }, [anchorEl]);
 
@@ -30,11 +30,7 @@ const NavBarItem = ({ isOpen, anchorEl, setIsOpen }) => {
                   <Stack direction='column' spacing={1} mt='12px'>
                     {item.subHeaderItems.map((hItem, index) => {
                       return (
-                        <Button
-                          key={index}
-                          sx={{ color: 'black' }}
-                          onClick={() => setIsOpen(false)}
-                        >
+                        <Button key={index} sx={{ color: 'black' }}>
                           {hItem.subItemName}
                         </Button>
                       );
@@ -43,7 +39,8 @@ const NavBarItem = ({ isOpen, anchorEl, setIsOpen }) => {
                 </Box>
               );
             })}
-            <img
+            <Box
+              component='img'
               src={navBarImage}
               style={{ borderRadius: '2', width: '600px', height: '380px' }}
             />

@@ -4,6 +4,7 @@ import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Products from './components/Product';
 import ResponsiveSlider from './components/Slider';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <NavBar />
         <ResponsiveSlider />
         <Products />
+        <Footer />
       </Stack>
     </>
   );

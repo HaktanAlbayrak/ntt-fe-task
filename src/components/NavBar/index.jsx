@@ -1,7 +1,7 @@
 import { Box, Button, Container, styled } from '@mui/material';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import NavBarItem from './NavBarItem';
-import { menuItems } from '../../navbarData';
+import { menuItems } from './navbarData';
 import './navbar.css';
 
 const StyledButton = styled(Button)({
@@ -11,14 +11,12 @@ const StyledButton = styled(Button)({
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const btnRef = useRef();
 
   return (
     <Container
       p={0}
       maxWidth='xl'
-      sx={{ display: 'flex', justifyContent: 'center' }}
+      sx={{ display: { xs: 'none', md: 'block' }, justifyContent: 'center' }}
     >
       <Box
         sx={{
@@ -50,17 +48,12 @@ const NavBar = () => {
                 onMouseOver={(e) => {
                   setAnchorEl(e.target.id);
                 }}
-                ref={btnRef}
               >
                 {item.itemName}
               </StyledButton>
             );
           })}
-          <NavBarItem
-            isOpen={isOpen}
-            anchorEl={anchorEl}
-            setIsOpen={setIsOpen}
-          />
+          <NavBarItem anchorEl={anchorEl} />
         </Box>
       </Box>
     </Container>
