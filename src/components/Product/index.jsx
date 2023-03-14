@@ -20,7 +20,7 @@ import { getProducts, useProducts } from './store';
 
 import ProductSlider from './ProductSlider';
 
-const StyledButton = styled(Box)({
+const StyledFavoriteButton = styled(Box)({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -52,6 +52,23 @@ const Products = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
+
+  const checkFavoriteClick = () => {
+    if (!clickedFavoriteButton) {
+      return items;
+    } else {
+      if (favoriteItems.length === 0) {
+        if (favoriteItems.length < 1) {
+          setClickedFavoriteButton(false);
+          return [];
+        } else {
+          return items;
+        }
+      } else {
+        return favoriteItems;
+      }
+    }
+  };
 
   return (
     <Box mt={7}>
@@ -92,12 +109,12 @@ const Products = () => {
               <Typography variant='span' fontWeight={700}>
                 {favoriteItems.length} ÜRÜN
               </Typography>
-              <StyledButton
+              <StyledFavoriteButton
                 sx={{ cursor: 'pointer' }}
                 onClick={() => setClickedFavoriteButton((prev) => !prev)}
               >
                 Beğenilenler
-              </StyledButton>
+              </StyledFavoriteButton>
             </Stack>
           </Box>
         </Box>
@@ -107,7 +124,7 @@ const Products = () => {
           spacing={2}
           sx={{ display: { xs: 'none', sm: 'flex' } }}
         >
-          {(!clickedFavoriteButton ? items : favoriteItems)
+          {checkFavoriteClick()
             .slice(0, productCount)
             .map((item) => {
               return (
@@ -132,7 +149,7 @@ const Products = () => {
             productCount={productCount}
           />
         </Box>
-        {productCount < items.length && (
+        {!clickedFavoriteButton && productCount < items.length && (
           <Box
             sx={{
               display: { xs: 'none', sm: 'flex' },
