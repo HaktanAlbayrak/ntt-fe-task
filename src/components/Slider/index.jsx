@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
@@ -10,22 +10,22 @@ const imageData = [
   {
     id: 1,
     title: 'First slide',
-    imgLink: 'src/assets/images/slider-1.png',
+    imgLink: '/src/assets/images/slider-1.png',
   },
   {
     id: 2,
     title: 'Second slide',
-    imgLink: 'src/assets/images/slider-2.png',
+    imgLink: '/src/assets/images/slider-2.png',
   },
   {
     id: 3,
     title: 'Third slide',
-    imgLink: 'src/assets/images/slider-3.png',
+    imgLink: '/src/assets/images/slider-3.png',
   },
   {
     id: 4,
     title: 'Fourth slide',
-    imgLink: 'src/assets/images/slider-4.png',
+    imgLink: '/src/assets/images/slider-4.png',
   },
 ];
 
