@@ -18,7 +18,7 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
   width: '100%',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   backgroundColor: 'white',
   color: 'black',
   borderBottom: '1px solid black',
@@ -33,11 +33,17 @@ const StyledToolBar = styled(Toolbar)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  [theme.breakpoints.up('xs')]: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
   },
 }));
 
-const SearchBar = styled('div')(({ theme }) => ({
+const SearchBar = styled(Box)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   height: '40px',
   border: '1px solid black',
@@ -56,12 +62,7 @@ const SearchBar = styled('div')(({ theme }) => ({
     marginLeft: '20px',
     width: '500px',
   },
-  [theme.breakpoints.not('md')]: {
-    marginLeft: '20px',
-    width: '10x',
-  },
   [theme.breakpoints.up('md')]: {
-    marginLeft: '75px',
     width: '650px',
   },
 }));
@@ -91,7 +92,8 @@ const Header = () => {
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'space-between',
-              marginBottom: { xs: '24px', md: '0px' },
+              alignItems: 'center',
+              marginBottom: { xs: '24px', sm: '0px' },
             }}
           >
             <Box component='img' src={Logo} alt='ntt-Logo' />

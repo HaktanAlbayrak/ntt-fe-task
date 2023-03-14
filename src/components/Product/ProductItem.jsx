@@ -35,7 +35,7 @@ const ProductItem = ({ item }) => {
     >
       <Card
         sx={{
-          maxWidth: '100%',
+          maxWidth: { xs: '100%', sm: '160px', md: '100%' },
           maxHeight: '375px',
           position: 'relative',
           padding: '15px',
@@ -102,11 +102,13 @@ const ProductItem = ({ item }) => {
               fontWeight: '400',
               fontSize: '12px',
               lineHeight: '14px',
-              width: '241px',
+              width: '100%',
               height: '56px',
             }}
           >
-            {item.description}
+            {item.description.length > 50
+              ? item.description.substr(0, 50).concat('...')
+              : item.description}
           </Typography>
           <Typography
             variant='span'
