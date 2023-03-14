@@ -1,7 +1,7 @@
 import { Box, Button, Container, styled } from '@mui/material';
 import React, { useRef, useState } from 'react';
 import NavBarItem from './NavBarItem';
-import { menuItems } from '../../navbarItems';
+import { menuItems } from '../../navbarData';
 import './navbar.css';
 
 const StyledButton = styled(Button)({

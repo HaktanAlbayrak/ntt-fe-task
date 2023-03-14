@@ -1,7 +1,7 @@
 import { Box, Button, Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import navBarImage from '../../assets/images/menuPhoto.png';
-import { menuItems } from '../../navbarItems';
+import { menuItems } from '../../navbarData';
 
 const NavBarItem = ({ isOpen, anchorEl, setIsOpen }) => {
   const [filteredData, setFilteredData] = useState([]);
