@@ -6,26 +6,31 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import './slider.css';
 
+import slider1 from '/src/assets/images/slider-1.png';
+import slider2 from '/src/assets/images/slider-2.png';
+import slider3 from '/src/assets/images/slider-3.png';
+import slider4 from '/src/assets/images/slider-4.png';
+
 const imageData = [
   {
     id: 1,
     title: 'First slide',
-    imgLink: '/src/assets/images/slider-1.png',
+    imgLink: slider1,
   },
   {
     id: 2,
     title: 'Second slide',
-    imgLink: '/src/assets/images/slider-2.png',
+    imgLink: slider2,
   },
   {
     id: 3,
     title: 'Third slide',
-    imgLink: '/src/assets/images/slider-3.png',
+    imgLink: slider3,
   },
   {
     id: 4,
     title: 'Fourth slide',
-    imgLink: '/src/assets/images/slider-4.png',
+    imgLink: slider4,
   },
 ];
 
