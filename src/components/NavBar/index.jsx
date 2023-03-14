@@ -1,7 +1,7 @@
 import { Box, Button, Container, styled } from '@mui/material';
 import React, { useState } from 'react';
 import NavBarItem from './NavBarItem';
-import { menuItems } from './navbarData';
+import { menuItems } from '../../utils/navbarData';
 import './navbar.css';
 
 const StyledButton = styled(Button)({
@@ -16,7 +16,7 @@ const NavBar = () => {
     <Container
       p={0}
       maxWidth='xl'
-      sx={{ display: { xs: 'none', sm: 'block' }, justifyContent: 'center' }}
+      sx={{ display: { xs: 'none', sm: 'flex' }, justifyContent: 'center' }}
     >
       <Box
         sx={{

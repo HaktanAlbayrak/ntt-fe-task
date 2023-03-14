@@ -54,7 +54,12 @@ const ResponsiveSlider = () => {
         {imageData.map((item, index) => (
           <Box key={index}>
             <Box>
-              <Box component='img' src={item.imgLink} alt={item.title} />
+              <Box
+                sx={{ height: '450px', width: '450px' }}
+                component='img'
+                src={item.imgLink}
+                alt={item.title}
+              />
             </Box>
           </Box>
         ))}

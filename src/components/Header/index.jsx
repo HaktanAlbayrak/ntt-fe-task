@@ -11,7 +11,8 @@ import {
   Toolbar,
 } from '@mui/material';
 import React, { useState } from 'react';
-import Logo from '../assets/images/Frame.png';
+import Logo from '../../assets/images/Frame.png';
+import HeaderMobileMenu from './headerMobileMenu';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   width: '100%',
@@ -45,7 +46,7 @@ const SearchBar = styled('div')(({ theme }) => ({
   [theme.breakpoints.only('xs')]: {
     marginLeft: '0px',
     borderRadius: '5px 0px 0px 5px',
-    width: '100%',
+    width: '235px',
   },
   [theme.breakpoints.only('sm')]: {
     marginLeft: '30px',
@@ -78,6 +79,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 const Header = () => {
   const [selectValue, setSelectValue] = useState('Categories');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <StyledAppBar sx={{ boxShadow: 0 }} position='relative'>
@@ -85,15 +87,18 @@ const Header = () => {
         <StyledToolBar>
           <Box
             sx={{
+              width: '100%',
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'space-between',
-              alignItems: 'center',
               marginBottom: { xs: '24px', md: '0px' },
             }}
           >
             <Box component='img' src={Logo} alt='ntt-Logo' />
-            <Menu sx={{ display: { xs: 'block', sm: 'none' } }} />
+            <Menu
+              onClick={() => setMenuOpen((prev) => !prev)}
+              sx={{ display: { xs: 'flex', sm: 'none' }, cursor: 'pointer' }}
+            />
           </Box>
           <Box
             sx={{
@@ -131,6 +136,7 @@ const Header = () => {
           </Box>
         </StyledToolBar>
       </Container>
+      <HeaderMobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     </StyledAppBar>
   );
 };

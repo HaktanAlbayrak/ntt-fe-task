@@ -73,9 +73,12 @@ const Products = () => {
             Content title goes here
           </Typography>
           <Typography
-            variant='h6'
+            variant='h7'
             fontWeight={700}
-            sx={{ display: { xs: 'block', sm: 'none' } }}
+            sx={{
+              display: { xs: 'block', sm: 'none' },
+              fontSize: '14px',
+            }}
           >
             Content title goes here
           </Typography>
