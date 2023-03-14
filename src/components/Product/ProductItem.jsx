@@ -35,7 +35,7 @@ const ProductItem = ({ item }) => {
     >
       <Card
         sx={{
-          maxWidth: { xs: '100%', sm: '160px', md: '100%' },
+          maxWidth: { xs: '100%', sm: '180px', md: '100%' },
           maxHeight: '375px',
           position: 'relative',
           padding: '15px',
