@@ -16,7 +16,7 @@ const NavBar = () => {
     <Container
       p={0}
       maxWidth='xl'
-      sx={{ display: { xs: 'none', md: 'block' }, justifyContent: 'center' }}
+      sx={{ display: { xs: 'none', sm: 'block' }, justifyContent: 'center' }}
     >
       <Box
         sx={{
